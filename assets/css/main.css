@@ -1,11 +1,11 @@
 /*------------------------------------------------------------------
 
     Main Style Stylesheet
-    Project:        Vortex. |  StartUp Landing Page Template
+    Project:        Giraldo tecnologia
     Version:        1.0
-    Author:         Gnawi Themes
-    Last change:    8/29/2016
-    Primary use:    Landing,Startup and Showcase.
+    Author:         Camilo Giraldo
+    Last change:    19/11/2018
+    
 
 -------------------------------------------------------------------*/
 /*-- Imports (only visible on scss file) --*/
@@ -601,57 +601,57 @@ nav.navbar.bootsnav.navbar-fixed .button-holder {
 /*========================================
            Pricing
 ========================================*/
-#price {
+#aliados {
   text-align: center; }
-  #price .plan {
+  #aliados .plan {
     background: #fff;
     box-shadow: 0px 0px 60px 0px rgba(213, 216, 224, 0.7); }
-  #price .active {
+  #aliados .active {
     -webkit-transform: scale(1.05);
         -ms-transform: scale(1.05);
             transform: scale(1.05);
     background-color: #fff;
     box-shadow: 0px 0px 60px 0px rgba(68, 197, 238, 0.6); }
-  #price .pricing-container {
+  #aliados .pricing-container {
     margin-top: 80px; }
-    #price .pricing-container h2 {
+    #aliados .pricing-container h2 {
       color: #496174;
       margin-bottom: 40px; }
-    #price .pricing-container h3 {
+    #aliados .pricing-container h3 {
       font-size: 24px;
       color: #f23c7e;
       margin-bottom: 0; }
-    #price .pricing-container h2,
-    #price .pricing-container h3 {
+    #aliados .pricing-container h2,
+    #aliados .pricing-container h3 {
       text-transform: none; }
-    #price .pricing-container .pricing-header {
+    #aliados .pricing-container .pricing-header {
       padding: 30px 0; }
-      #price .pricing-container .pricing-header .currency {
+      #aliados .pricing-container .pricing-header .currency {
         position: relative;
         font-weight: 700;
         font-size: 18px;
         color: #496174;
         top: -20px; }
-      #price .pricing-container .pricing-header .amount {
+      #aliados .pricing-container .pricing-header .amount {
         color: #496174;
         font-size: 44px;
         font-weight: 700; }
-      #price .pricing-container .pricing-header .period {
+      #aliados .pricing-container .pricing-header .period {
         font-size: 22px;
         font-weight: 300;
         color: #496174;
         position: relative;
         top: 12px; }
-    #price .pricing-container ul {
+    #aliados .pricing-container ul {
       padding: 20px 0; }
-      #price .pricing-container ul li {
+      #aliados .pricing-container ul li {
         font-size: 15px;
         letter-spacing: .1em;
         margin: 15px 0; }
-        #price .pricing-container ul li i {
+        #aliados .pricing-container ul li i {
           color: #f23c7e;
           margin-right: 10px; }
-    #price .pricing-container .pricing-footer {
+    #aliados .pricing-container .pricing-footer {
       padding: 25px 0; }
 
 /*========================================

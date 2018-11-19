@@ -22,7 +22,7 @@ $(document).ready(function () {
             "Tecnología de Punta",
             "Soluciones Iot",
             "Automatización de procesos",
-            "Electicidad y Electronica",
+            "Electricidad y Electronica",
             "Y Mucho Mas"
         ],
         typeSpeed: 120,
