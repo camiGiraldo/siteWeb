@@ -169,9 +169,19 @@
     <!--//** Banner**//-->
 
     <section id="home">
-        <video autoplay muted loop id="myVideo">
-            <source src="https://mdbootstrap.com/img/video/Lines-min.mp4" type="video/mp4">
+        <video autoplay muted loop preload="none" id="myVideo" src="https://mdbootstrap.com/img/video/Lines-min.mp4">
+           
           </video>
+
+          <script>
+            var video = document.querySelector('#myVideo');
+            video.pause();
+
+            //Avoid the Promise Error
+            setTimeout(function () {      
+                video.play();
+            }, 150);         
+          </script>
         <div class="container">
 
             <div class="row">
@@ -188,7 +198,8 @@
 
                         Giraldos Tecnologia: 
                         <br>
-                       
+                        <span class="animated-text"></span>
+                        <span class="typed-cursor"></span>
 
                     </h2>
 

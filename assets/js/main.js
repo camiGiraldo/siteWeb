@@ -17,10 +17,13 @@ $(document).ready(function () {
 
     $(".animated-text").typed({
         strings: [
-            "Desarrollo a la medida",
-            "Onepage template",
-            "Mobile first",
-            "Tecnologia de punta"
+            "Innovación",
+            "Desarrollo de Software",
+            "Tecnología de Punta",
+            "Soluciones Iot",
+            "Automatización de procesos",
+            "Electicidad y Electronica",
+            "Y Mucho Mas"
         ],
         typeSpeed: 120,
         loop: true,
