@@ -532,6 +532,12 @@ nav.navbar.bootsnav.navbar-fixed .button-holder {
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
+    background-attachment: fixed;
+  }
+
+  .parallax-window {
+    min-height: 400px;
+    background: transparent;
   }
 
 /*========================================
