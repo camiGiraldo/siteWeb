@@ -175,7 +175,7 @@ p {
   letter-spacing: 0.08em;
   -webkit-transition: 0.5s all;
           transition: 0.5s all;
-  box-shadow: 0px 0px 60px 0px rgba(68, 197, 238, 0.6);
+  box-shadow: 0px 0px 7px 0px rgba(68, 197, 238, 0.6);
   outline: none !important; }
 
 .btn-blue:hover,
@@ -471,7 +471,8 @@ p {
            Header
 ========================================*/
 nav.navbar.bootsnav.navbar-fixed .navbar-brand {
-  35px 15px; }
+  padding: 35px 15px; 
+  font-size: 30px;}
 nav.navbar.bootsnav.navbar-fixed ul.nav > li > a {
   padding: 35px 15px; }
 nav.navbar.bootsnav.navbar-fixed .button-holder {
@@ -754,7 +755,7 @@ nav.navbar.bootsnav.navbar-fixed .button-holder {
     top: 100px;
     z-index: 1;
     background: #44c5ee;
-    box-shadow: 0px 0px 60px 0px rgba(68, 197, 238, 0.6);
+    box-shadow: 0px 0px 7px 0px rgba(68, 197, 238, 0.6);
     padding: 30px;
     color: #fff; }
     #contact .contact-info i {
