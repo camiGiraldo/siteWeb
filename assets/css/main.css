@@ -596,7 +596,7 @@ nav.navbar.bootsnav.navbar-fixed .button-holder {
       font-size: 46px;
       margin-right: 25px; }
   #features img {
-    margin-top: 80px; }
+    margin-top: 0; }
 
 /*========================================
            Pricing
@@ -808,3 +808,17 @@ footer {
     footer li a:focus,
     footer li a:active {
       color: #496174; }
+
+  .products{
+    padding: 20px 50px;
+  }
+
+  .products .pnl-der{
+    padding: 60px 0px 0px 26px;
+  }
+
+  .products .pnl-iz {
+    padding: 0 60px;
+  }
+
+
