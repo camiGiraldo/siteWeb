@@ -77,7 +77,7 @@ $(document).ready(function () {
     });
 
 
-    $('#sendEmail').on('click', sendEmail);
+    $('#sendEmailCall').on('click', sendEmailCall);
 
     // Snazzy Maps
     //google.maps.event.addDomListener(window, 'load', init);
@@ -138,37 +138,41 @@ $(document).ready(function () {
     
 });
 
-function sendEmail() {
-
+function sendEmailCall() {
+$('#sendEmailCall').attr("disabled", true);
 debugger
     var data = {
         action: "sendEmail", 
         nombreCompleto: $('#nombreCompleto').val() ,
         email:$('#email').val(), 
         cellPhone:$('#cellPhone').val(),
-        mensaje: ($('#mensaje').val() != "") ? $('#mensaje').val() : ""
+        mensaje: "Llamar a nuevo posible cliente"
     }
 debugger
     generateAjax("POST", data, (call)=>{
 
         if(call.state === "SUCCES"){
             setMsgSenEmail("! Gracias por contactarnos, en breve un asesor se comunicará con tigo !");
-            $('.status-send-email').show();
+            $('.status-send-email').show(1000);
         }else{
-            setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
-            $('.status-send-email').show();
+            setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde o dejanos un mensaje "+ 
+                           "<a href='#contact'> en el siguiente link </a>");
+            $('.status-send-email').show(1000);
         }
 
         setTimeout(function(){
-            $('.status-send-email').hide();
+            $('.status-send-email').hide(1000);
         },5000)
+        $('#sendEmailCall').attr("disabled", false);
     },
     (error)=>{
         setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
-        $('.status-send-email').show();
+        $('.status-send-email').show(1000);
         setTimeout(function(){
-            $('.status-send-email').hide();
-        },5000)
+            $('.status-send-email').hide(1000);
+        },10000)
+
+        $('#sendEmailCall').attr("disabled", false);
     });
 
     
