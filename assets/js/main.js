@@ -151,27 +151,37 @@ debugger
 debugger
     generateAjax("POST", data, (call)=>{
 
-        debugger
+        if(call.state === "SUCCES"){
+            setMsgSenEmail("! Gracias por contactarnos, en breve un asesor se comunicará con tigo !");
+            $('.status-send-email').show();
+        }else{
+            setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
+            $('.status-send-email').show();
+        }
+
+        setTimeout(function(){
+            $('.status-send-email').hide();
+        },5000)
+    },
+    (error)=>{
+        setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
         $('.status-send-email').show();
         setTimeout(function(){
             $('.status-send-email').hide();
         },5000)
-        console.log(call)
-    },
-    (error)=>{
-
-        debugger
-        console.log(error);
     });
 
     
 }
 
+function setMsgSenEmail(message){
+    $('.status-send-email').html(message);
+}
+
 
 var urlServices = "http://giraldostecnologia.co/services/rest.php"
 function generateAjax(tipo,data, funSuccess, funError){
-    debugger
-
+  
     $.ajax({
         url : urlServices,
         type: tipo,
