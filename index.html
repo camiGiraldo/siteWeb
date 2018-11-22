@@ -221,7 +221,7 @@
 
                 <div class="col-md-5 col-md-offset-1">
 
-                    <form class="signup-form">
+                    <div class="signup-form">
 
                         <h2 class="text-center">Te llamamos!</h2>
 
@@ -229,29 +229,33 @@
 
                         <div class="form-group">
 
-                            <input type="text" class="form-control" placeholder="Nombres y Apellidos" required="required">
+                            <input type="text" class="form-control" placeholder="Nombres y Apellidos" name="nombreCompleto" 
+                            id="nombreCompleto" required="required">
 
                         </div>
 
                         <div class="form-group">
 
-                            <input type="email" class="form-control" placeholder="Correo electronico" required="required">
+                            <input type="email" class="form-control" placeholder="Correo electronico" name="email" id="email" required="required">
 
                         </div>
 
                         <div class="form-group">
 
-                            <input type="text" class="form-control" placeholder="Celular" required="required">
+                            <input type="text" class="form-control" placeholder="Celular" name="cellPhone" id="cellPhone" required="required">
 
                         </div>
 
                         <div class="form-group text-center">
 
-                            <button type="submit" class="btn btn-blue btn-block">Registrar</button>
+                            <button class="btn btn-blue btn-block" id="sendEmail">Registrar</button>
 
                         </div>
+                        <div class="status-send-email">
+                           ! Gracias por contactarnos, en breve un asesor se comunicará con tigo !
+                        </div>
 
-                    </form>
+                    </div>
 
                 </div>
 
@@ -345,7 +349,9 @@
 
         <div class="container-fluid">
 
-            <div class="row" data-aos="zoom-in">
+            <div class="row" data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1000">
 
                 <!-- Img -->
 
@@ -1097,7 +1103,7 @@
 
                         <div class="form-group">
 
-                            <textarea class="form-control" rows="3" placeholder="Mensaje"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Mensaje" id="mensaje"></textarea>
 
                         </div>
 

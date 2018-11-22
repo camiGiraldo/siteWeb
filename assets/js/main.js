@@ -76,6 +76,9 @@ $(document).ready(function () {
         autoPlay: true
     });
 
+
+    $('#sendEmail').on('click', sendEmail);
+
     // Snazzy Maps
     //google.maps.event.addDomListener(window, 'load', init);
 
@@ -134,3 +137,55 @@ $(document).ready(function () {
     }*/
     
 });
+
+function sendEmail() {
+
+debugger
+    var data = {
+        action: "sendEmail", 
+        nombreCompleto: $('#nombreCompleto').val() ,
+        email:$('#email').val(), 
+        cellPhone:$('#cellPhone').val(),
+        mensaje: ($('#mensaje').val() != "") ? $('#mensaje').val() : ""
+    }
+debugger
+    generateAjax("POST", data, (call)=>{
+
+        debugger
+        $('.status-send-email').show();
+        setTimeout(function(){
+            $('.status-send-email').hide();
+        },5000)
+        console.log(call)
+    },
+    (error)=>{
+
+        debugger
+        console.log(error);
+    });
+
+    
+}
+
+
+var urlServices = "http://giraldostecnologia.co/services/rest.php"
+function generateAjax(tipo,data, funSuccess, funError){
+    debugger
+
+    $.ajax({
+        url : urlServices,
+        type: tipo,
+        data : data,
+        success: function(data, textStatus, jqXHR)
+        {
+
+			funSuccess(JSON.parse(data));
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            funError(errorThrown);
+        },
+    });
+
+
+}

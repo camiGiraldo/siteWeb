@@ -838,4 +838,12 @@ footer {
     height: 50px;
   }
 
+  .status-send-email{
+    text-align: center;
+    background: #93ef93;
+    line-height: unset;
+    padding: 6px 0px;
+    display: none;
+  }
+
 
