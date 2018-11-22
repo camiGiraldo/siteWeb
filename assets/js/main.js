@@ -140,46 +140,65 @@ $(document).ready(function () {
 
 function sendEmailCall() {
 $('#sendEmailCall').attr("disabled", true);
-debugger
-    var data = {
-        action: "sendEmail", 
-        nombreCompleto: $('#nombreCompleto').val() ,
-        email:$('#email').val(), 
-        cellPhone:$('#cellPhone').val(),
-        mensaje: "Llamar a nuevo posible cliente"
-    }
-debugger
-    generateAjax("POST", data, (call)=>{
 
-        if(call.state === "SUCCES"){
-            setMsgSenEmail("! Gracias por contactarnos, en breve un asesor se comunicará con tigo !");
-            $('.status-send-email').show(1000);
-        }else{
-            setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde o dejanos un mensaje "+ 
-                           "<a href='#contact'> en el siguiente link </a>");
-            $('.status-send-email').show(1000);
-        }
-
-        setTimeout(function(){
-            $('.status-send-email').hide(1000);
-        },5000)
-        $('#sendEmailCall').attr("disabled", false);
-    },
-    (error)=>{
-        setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
+    if($('#nombreCompleto').val() === "" || $('#nombreCompleto').val() === null ||  $('#cellPhone').val() === "" || $('#cellPhone').val() === null){
+        setMsgSenEmail("El mensaje debe contener por lo menos el nombre y el numero telefonico");
         $('.status-send-email').show(1000);
-        setTimeout(function(){
-            $('.status-send-email').hide(1000);
-        },10000)
-
+        $('.status-send-email').css('background','#dec5bf');
         $('#sendEmailCall').attr("disabled", false);
-    });
+    }else{
+        var data = {
+            action: "sendEmail", 
+            nombreCompleto: $('#nombreCompleto').val() ,
+            email:$('#email').val(), 
+            cellPhone:$('#cellPhone').val(),
+            mensaje: "Llamar a nuevo posible cliente"
+        }
+    
+        generateAjax("POST", data, (call)=>{
+    
+            if(call.state === "SUCCES"){
+                setMsgSenEmail("! Gracias por contactarnos, en breve un asesor se comunicará con tigo !");
+                $('.status-send-email').show(1000);
+            }else{
+                setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde o dejanos un mensaje "+ 
+                               "<a href='#contact'> en el siguiente link </a>");
+                $('.status-send-email').show(1000);
+            }
+    
+            setTimeout(function(){
+                $('.status-send-email').hide(1000);
+            },5000)
+            $('#sendEmailCall').attr("disabled", false);
+        },
+        (error)=>{
+            setMsgSenEmail("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
+            $('.status-send-email').show(1000);
+            setTimeout(function(){
+                $('.status-send-email').hide(1000);
+            },10000)
+    
+            $('#sendEmailCall').attr("disabled", false);
+        });
+    }
+
+
+    
 
     
 }
 
 function setMsgSenEmail(message){
+    $('.status-send-email').css('background','#93ef93');
     $('.status-send-email').html(message);
+}
+
+function cleanForms() {
+   
+        $('#nombreCompleto').val('');
+        $('#email').val(''); 
+        $('#cellPhone').val('');
+    
 }
 
 
