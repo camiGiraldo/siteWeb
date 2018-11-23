@@ -1081,19 +1081,19 @@
 
                 <h2>Dejanos un mensaje</h2>
 
-                <form class="contact-form">
+                <div class="contact-form">
 
                     <div class="col-md-6">
 
                         <div class="form-group">
 
-                            <input type="text" class="form-control" placeholder="Nombre completo" required="required">
+                            <input type="text" class="form-control nombreCompleto" placeholder="Nombre completo" required="required" >
 
                         </div>
 
                         <div class="form-group">
 
-                            <input type="email" class="form-control" placeholder="Email" required="required">
+                            <input type="email" class="form-control email" placeholder="Email" required="required">
 
                         </div>
 
@@ -1103,15 +1103,17 @@
 
                         <div class="form-group">
 
-                            <textarea class="form-control" rows="3" placeholder="Mensaje" id="mensaje"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Mensaje" class="mensaje"></textarea>
 
                         </div>
 
                     </div>
 
-                    <button type="submit" class="btn btn-blue">Enviar Mensaje</button>
-
-                </form>
+                    <button  class="btn btn-blue" id="sendEmailMessage">Enviar Mensaje</button>
+                    <div class="status-send-email-message">
+                        ! Gracias por contactarnos, en breve un asesor se comunicará con tigo !
+                     </div>
+                </div>
 
             </div>
 

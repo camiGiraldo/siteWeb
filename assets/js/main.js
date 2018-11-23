@@ -78,6 +78,7 @@ $(document).ready(function () {
 
 
     $('#sendEmailCall').on('click', sendEmailCall);
+    $('#sendEmailMessage').on('click', sendEmailMessage);
 
     // Snazzy Maps
     //google.maps.event.addDomListener(window, 'load', init);
@@ -181,16 +182,62 @@ $('#sendEmailCall').attr("disabled", true);
             $('#sendEmailCall').attr("disabled", false);
         });
     }
-
-
-    
-
-    
 }
+
+function sendEmailMessage() {
+    $('#sendEmailMessage').attr("disabled", true);
+    debugger
+    
+        if($('.nombreCompleto').val() === "" || $('.nombreCompleto').val() === null ||  $('.mensaje').val() === "" || $('#mensaje').val() === null){
+            setMsgSenEmailMesaage("Se debe digitar por lo menos el nombre y el mensaje");
+            $('.status-send-email-message').show(1000);
+            $('.status-send-email-message').css('background','#dec5bf');
+            $('#sendEmailMessage').attr("disabled", false);
+        }else{
+            var data = {
+                action: "sendEmail", 
+                nombreCompleto: $('.nombreCompleto').val() ,
+                email:$('.email').val(), 
+                cellPhone:"333333333",
+                mensaje: $('.mensaje').val()
+            }
+        
+            generateAjax("POST", data, (call)=>{
+        
+                if(call.state === "SUCCES"){
+                    setMsgSenEmailMesaage("! Gracias por contactarnos, en breve un asesor se comunicará con tigo !");
+                    $('.status-send-email-message').show(1000);
+                }else{
+                    setMsgSenEmailMesaage("En el momento no nos encontramos disponibles, por favor intentalo mas tarde o dejanos un mensaje "+ 
+                                   "<a href='#contact'> en el siguiente link </a>");
+                    $('.status-send-email-message').show(1000);
+                }
+        
+                setTimeout(function(){
+                    $('.status-send-email-message').hide(1000);
+                },5000)
+                $('#sendEmailMessage').attr("disabled", false);
+            },
+            (error)=>{
+                setMsgSenEmailMesaage("En el momento no nos encontramos disponibles, por favor intentalo mas tarde");
+                $('.status-send-email-message').show(1000);
+                setTimeout(function(){
+                    $('.status-send-email-message').hide(1000);
+                },10000)
+        
+                $('#sendEmailMessage').attr("disabled", false);
+            });
+        }
+    }
 
 function setMsgSenEmail(message){
     $('.status-send-email').css('background','#93ef93');
     $('.status-send-email').html(message);
+}
+
+function setMsgSenEmailMesaage(message){
+    $('.status-send-email-message').css('background','#93ef93');
+    $('.status-send-email-message').html(message);
 }
 
 function cleanForms() {
@@ -198,11 +245,14 @@ function cleanForms() {
         $('#nombreCompleto').val('');
         $('#email').val(''); 
         $('#cellPhone').val('');
+        $('.nombreCompleto').val('');
+        $('.email').val(''); 
+        $('.mensaje').val('');
     
 }
 
 
-var urlServices = "http://giraldostecnologia.co/services/rest.php"
+var urlServices = "http://giraldostecnologia.co/services/rest.php";
 function generateAjax(tipo,data, funSuccess, funError){
   
     $.ajax({
