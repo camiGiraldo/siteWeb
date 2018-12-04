@@ -188,8 +188,8 @@ function sendEmailMessage() {
     $('#sendEmailMessage').attr("disabled", true);
     debugger
     
-        if($('.nombreCompleto').val() === "" || $('.nombreCompleto').val() === null ||  $('.mensaje').val() === "" || $('#mensaje').val() === null){
-            setMsgSenEmailMesaage("Se debe digitar por lo menos el nombre y el mensaje");
+        if($('.email').val() === "" || $('.email').val() === null ||  $('.mensaje').val() === "" || $('#mensaje').val() === null){
+            setMsgSenEmailMesaage("Se debe digitar por lo menos el correo y el mensaje");
             $('.status-send-email-message').show(1000);
             $('.status-send-email-message').css('background','#dec5bf');
             $('#sendEmailMessage').attr("disabled", false);
